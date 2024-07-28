@@ -1,0 +1,23 @@
+void bubbleSort(vector<int>& array) {
+    int length = array.size();
+    bool isSwapped;
+
+    // Traverse through all elements in the array
+    for (int pass = 0; pass < length - 1; ++pass) {
+        isSwapped = false;
+        
+        // Last pass elements are already in place
+        for (int index = 0; index < length - pass - 1; ++index) {
+            // Traverse the array from 0 to length-pass-1
+            // Swap if the current element is greater than the next element
+            if (array[index] > array[index + 1]) {
+                swap(array[index], array[index + 1]);
+                isSwapped = true;
+            }
+        }
+        
+        // If no two elements were swapped in the inner loop, then break
+        if (!isSwapped)
+            break;
+    }
+}
